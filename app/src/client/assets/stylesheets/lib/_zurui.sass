@@ -1,0 +1,44 @@
+
+// Import compass
+// ---------------------------------------------------------
+
+@import compass
+
+// Zurui Design Semiflat
+// ---------------------------------------------------------
+
+=gradient-top-lighten ($color : #666, $lighten: 5%)
+  background-color: $color
+  +filter-gradient(lighten($color, $lighten), $color,vertical)
+  +background-image(linear-gradient(lighten($color,$lighten) 0%, $color 100%))
+=gradient-bottom-darken ($color : #fff, $darken: 5%)
+  background-color: $color
+  +filter-gradient($color, darken($color, $darken), vertical)
+  +background-image(linear-gradient($color 0%, darken($color,$darken) 100%))
+
+=balloon-top($size: 6px, $color: #fff, $offset: 6px)
+  position: relative
+  &:after
+    position: absolute
+    content: ""
+    display: block
+    border: $size solid transparent
+    border-bottom: $size solid $color
+    top: -1 * $size * 2
+    left: $offset
+
+=balloon-top-border($size: 6px, $color: #fff, $offset: 6px, $border-color: #b2b2b2, $border-width: 1px)
+  position: relative
+  $border-size: $size + $border-width
+  +balloon-top($size, $color, $offset)
+  &:before
+    position: absolute
+    content: ""
+    display: block
+    border: $border-size solid transparent
+    border-bottom: $border-size solid $border-color
+    top: -1 * $border-size * 2
+    left: $offset
+
+=shadow-box
+  +box-shadow(rgba(0,0,0,.05) 0px 4px 2px)
