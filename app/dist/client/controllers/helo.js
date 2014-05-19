@@ -1,4 +1,4 @@
 "use strict";
-app.controller("HeloController", function($scope, navigator, webstorage) {
+app.controller("HeloController", function($scope, webstorage) {
   return $scope.helohelomessage = 'hellon!';
 });

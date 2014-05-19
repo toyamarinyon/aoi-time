@@ -1,5 +1,5 @@
 "use strict"
 
-app.controller "HeloController", ($scope, navigator, webstorage) ->
+app.controller "HeloController", ($scope, webstorage) ->
 
   $scope.helohelomessage = 'hellon!'
