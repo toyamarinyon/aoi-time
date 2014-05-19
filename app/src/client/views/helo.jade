@@ -1,2 +1,20 @@
 .h2 {{helohelomessage}}
 .h3 {{online}}
+
+.container
+  .row
+    .alert.alert-info
+      | Registtime test
+
+    form.form-horizontal(role="form")
+      .form-group
+        label.col-sm-2(for="inputworked.from3") worked.from
+        .col-sm-10
+          input#inputworked.from3.form-control(type="time",value="09:20")
+      .form-group
+        label.col-sm-2(for="inputworked.to3") worked.to
+        .col-sm-10
+          input#inputworked.to3.form-control(type="time",value="20:52")
+      .form-group
+        .col-sm-offset-2.col-sm-10
+          button.btn.btn-default(type="submit") Sign in
