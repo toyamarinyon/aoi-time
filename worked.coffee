@@ -6,6 +6,10 @@ worked = module.exports = do ->
   working_breaktime = '1.0'
   normal_working_hours = '8.0'
 
+  hour_to_millisec = (hour) ->
+    return hour*60*60*1000
+
+
   return {
     from: (datetime) ->
       worked_from = new Date(datetime)
@@ -16,10 +20,17 @@ worked = module.exports = do ->
       return this
 
     workingtime: ->
-      difference_hours = (worked_to - worked_from)/(1000*60*60)
-      return Math.round(difference_hours * 100)/100
+      # difference_hours = (worked_to - worked_from)/(1000*60*60)
+      # return Math.round(difference_hours * 100)/100
+      diff_millisec = new Date(worked_to - worked_from).getTime()
+      diff_millisec = diff_millisec - hour_to_millisec(normal_working_hours) - hour_to_millisec(working_breaktime)
+      return new Date(diff_millisec)
 
     overtime: ->
-      overtime = this.workingtime() - normal_working_hours - working_breaktime
-      return if overtime < 0 then 0 else overtime
+      workingtime = this.workingtime()
+      hour = workingtime.getHours()
+      min  = workingtime.getMinutes()
+      return hour+':'+('0'+min).slice(-2)
+      # overtime = ((this.workingtime()*100) - (normal_working_hours*100) - (working_breaktime*100))/100
+      # return if overtime < 0 then 0 else overtime
   }
