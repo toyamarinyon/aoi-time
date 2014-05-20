@@ -8,6 +8,10 @@ describe 'worked', ->
       worked.from '2014/05/19 09:00:00'
       worked.to '2014/05/19 21:30:00'
 
+    it 'should return 0:00 when we worked from 9:00 to 16:00', ->
+      worked.to '2014/05/19 16:00:00'
+        .overtime().should.equal('0:00')
+
     it 'should return 0:00 when we worked from 9:00 to 18:00', ->
       worked.to '2014/05/19 18:00:00'
         .overtime().should.equal('0:00')

@@ -22,7 +22,10 @@ worked = module.exports = do ->
     workingtime: ->
       # difference_hours = (worked_to - worked_from)/(1000*60*60)
       # return Math.round(difference_hours * 100)/100
-      diff_millisec = new Date(worked_to - worked_from).getTime()
+      diff_date = new Date(worked_to - worked_from)
+      if diff_date.getHours() < (1*normal_working_hours) + (1*working_breaktime)
+        return new Date(1900, 1, 1, 0, 0, 0, 0)
+      diff_millisec = diff_date.getTime()
       diff_millisec = diff_millisec - hour_to_millisec(normal_working_hours) - hour_to_millisec(working_breaktime)
       return new Date(diff_millisec)
 
