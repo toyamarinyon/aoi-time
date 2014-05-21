@@ -2,7 +2,8 @@ doctype
 html(manifest="aoi0.appcache" ng-app="aoichan")
   head
     title Aoi-caching
-    link(rel="stylesheet",href="//netdna.bootstrapcdn.com/bootstrap/3.1.1/css/bootstrap.min.css")
+    link(rel='stylesheet', href='/font-awesome/css/font-awesome.min.css')
+    link(rel='stylesheet', href='/assets/stylesheets/core.css')
 
   body
     h1 APPLICATION CACHING!!!
@@ -16,6 +17,7 @@ html(manifest="aoi0.appcache" ng-app="aoichan")
     script(src='/angular-cookies/angular-cookies.min.js')
     script(src='/angular-resource/angular-resource.min.js')
     script(src='/angular-route/angular-route.min.js')
+    script(src='/angular-easyfb/angular-easyfb.min.js')
 
     // Initializing.
     script(src='/bootstrap.js')
@@ -25,5 +27,3 @@ html(manifest="aoi0.appcache" ng-app="aoichan")
     // Load controllers.
     script(src='/controllers/index.js')
     script(src='/controllers/helo.js')
-
-    script(src="//netdna.bootstrapcdn.com/bootstrap/3.1.1/js/bootstrap.min.js")

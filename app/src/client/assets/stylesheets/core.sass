@@ -30,3 +30,27 @@ body
 
 .bold
   text-weight: bold
+
+.pos-abs
+  position: relative
+
+.container
+  position: absolute
+  top: 0
+
+.animate.ng-hide-add,
+.animate.ng-hide-remove
+  display: block!important
+  -webkit-transition: all linear 0.5s
+  transition: all linear 0.5s
+
+.animate.ng-hide-add.ng-hide-add-active,
+.animate.ng-hide-remove
+  opacity: 0
+  z-index: 1
+
+.animate.ng-hide-remove.ng-hide-remove-active,
+.animate.ng-hide-add
+  opacity: 1
+  z-index: 100
+
