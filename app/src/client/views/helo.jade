@@ -1,24 +1,38 @@
-.h2 {{helohelomessage}}
-.h3 {{working_history}}
-.h3 {{online}}
+.h2 helohelomessage={{helohelomessage}}
+.h3 working_history={{working_history}}
+.h3 online={{online}}
+.h3 run_level={{run_level}}
+.h3 authentication={{auth}}
 
-.container
-  .row
-    .alert.alert-info
-      | Registtime test
+.pos-abs
+  .container.animate(ng-show="run_level == 'bootstrapping'||run_level == 'ready'")
+    .row
+      p.bg-info.col-sm-6
+        b now loading
+    .row
+      .col-sm-6
+        a.btn.btn-info(ng-click="run_level='run'") run!
 
-    form.form-horizontal(role="form")
-      .form-group
-        label.col-sm-2(for="inputworked.from3") worked.from
-        .col-sm-10
-          input#inputworked.from3.form-control(type="text",value="2014-05-20 09:00:00",ng-model="worked.from")
-      .form-group
-        label.col-sm-2(for="inputworked.to3") worked.to
-        .col-sm-10
-          input#inputworked.to3.form-control(type="text",value="2014-05-20 19:00:00",ng-model="worked.to")
-      .form-group
-        .col-sm-offset-2.col-sm-10
-          button.btn.btn-default(type="submit",ng-click="hello()") HELLO!!
-      .form-group
-        .col-sm-offset-2.col-sm-10
-          button.btn.btn-default(type="submit",ng-click="bye()") BYE!!
+  .container.animate(ng-show="run_level == 'run'")
+    .row
+      .alert.alert-info
+        | Registtime test
+
+      form.form-horizontal(role="form")
+        .form-group
+          label.col-sm-2(for="inputworked.from3") worked.from
+          .col-sm-10
+            input#inputworked.from3.form-control(type="text",value="2014-05-20 09:00:00",ng-model="worked.from")
+        .form-group
+          label.col-sm-2(for="inputworked.to3") worked.to
+          .col-sm-10
+            input#inputworked.to3.form-control(type="text",value="2014-05-20 19:00:00",ng-model="worked.to")
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit",ng-click="hello()") HELLO!!
+        .form-group
+          .col-sm-offset-2.col-sm-10
+            button.btn.btn-default(type="submit",ng-click="bye()") BYE!!
+    .row
+      .col-sm-6
+        a.btn.btn-primary(ng-click="facebook_login()") facebook login

@@ -57,7 +57,7 @@ module.exports = (grunt) ->
     compass:
       compile:
         options:
-          require : "bootstrap-sass"
+          require : ["bootstrap-sass"]
           bundleExec : true
           sassDir : "#{directoryConfig.appSrc}#{directoryConfig.appStyleSheets}"
           cssDir  : "#{directoryConfig.appDist}#{directoryConfig.appStyleSheets}"

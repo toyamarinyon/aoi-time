@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller "HeloController", ($scope, $log, webstorage, worked) ->
+app.controller "HeloController", ($scope, $log, ezfb, webstorage, worked, navigator) ->
 
   $scope.helohelomessage = 'hellon!'
 
@@ -23,3 +23,9 @@ app.controller "HeloController", ($scope, $log, webstorage, worked) ->
     $scope.working_history.filter (item, index, array) ->
       array.splice index, 1 if item.date == $scope.worked.date()
     $scope.working_history.push $scope.worked.to_object()
+
+  $scope.facebook_login = ->
+    ezfb.login (res) ->
+      if res.authResponse?
+        $log.info res
+    , {scope: 'email,public_profile'}

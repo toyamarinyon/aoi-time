@@ -1,33 +1,48 @@
 
-<div class="h2">{{helohelomessage}}</div>
-<div class="h3">{{working_history}}</div>
-<div class="h3">{{online}}</div>
-<div class="container">
-  <div class="row">
-    <div class="alert alert-info">Registtime test</div>
-    <form role="form" class="form-horizontal">
-      <div class="form-group">
-        <label for="inputworked.from3" class="col-sm-2">worked.from</label>
-        <div class="col-sm-10">
-          <input id="inputworked" type="text" value="2014-05-20 09:00:00" ng-model="worked.from" class="from3 form-control"/>
+<div class="h2">helohelomessage={{helohelomessage}}</div>
+<div class="h3">working_history={{working_history}}</div>
+<div class="h3">online={{online}}</div>
+<div class="h3">run_level={{run_level}}</div>
+<div class="h3">authentication={{auth}}</div>
+<div class="pos-abs">
+  <div ng-show="run_level == 'bootstrapping'||run_level == 'ready'" class="container animate">
+    <div class="row">
+      <p class="bg-info col-sm-6"><b>now loading</b></p>
+    </div>
+    <div class="row">
+      <div class="col-sm-6"><a ng-click="run_level='run'" class="btn btn-info">run!</a></div>
+    </div>
+  </div>
+  <div ng-show="run_level == 'run'" class="container animate">
+    <div class="row">
+      <div class="alert alert-info">Registtime test</div>
+      <form role="form" class="form-horizontal">
+        <div class="form-group">
+          <label for="inputworked.from3" class="col-sm-2">worked.from</label>
+          <div class="col-sm-10">
+            <input id="inputworked" type="text" value="2014-05-20 09:00:00" ng-model="worked.from" class="from3 form-control"/>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <label for="inputworked.to3" class="col-sm-2">worked.to</label>
-        <div class="col-sm-10">
-          <input id="inputworked" type="text" value="2014-05-20 19:00:00" ng-model="worked.to" class="to3 form-control"/>
+        <div class="form-group">
+          <label for="inputworked.to3" class="col-sm-2">worked.to</label>
+          <div class="col-sm-10">
+            <input id="inputworked" type="text" value="2014-05-20 19:00:00" ng-model="worked.to" class="to3 form-control"/>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" ng-click="hello()" class="btn btn-default">HELLO!!</button>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" ng-click="hello()" class="btn btn-default">HELLO!!</button>
+          </div>
         </div>
-      </div>
-      <div class="form-group">
-        <div class="col-sm-offset-2 col-sm-10">
-          <button type="submit" ng-click="bye()" class="btn btn-default">BYE!!</button>
+        <div class="form-group">
+          <div class="col-sm-offset-2 col-sm-10">
+            <button type="submit" ng-click="bye()" class="btn btn-default">BYE!!</button>
+          </div>
         </div>
-      </div>
-    </form>
+      </form>
+    </div>
+    <div class="row">
+      <div class="col-sm-6"><a ng-click="facebook_login()" class="btn btn-primary">facebook login</a></div>
+    </div>
   </div>
 </div>
