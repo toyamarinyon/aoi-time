@@ -22,14 +22,14 @@ app = angular.module("aoichan", ['ngRoute','ezfb','ngAnimate'])
         ezfb.getLoginStatus (res) ->
           if res.status == 'connected'
             $rootScope.auth = true
-            deferred.resolve()
+          deferred.resolve()
       else
         if webstorage.get('auth') == 'connected'
           $rootScope.auth = true
-          deferred.resolve()
+        deferred.resolve()
       deferred.promise
 
     $q.all([is_authentication()])
       .then (resolves) ->
-        $rootScope.run_level = 'ready'
+        $rootScope.run_level = 'run'
 

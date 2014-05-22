@@ -25,18 +25,18 @@ app = angular.module("aoichan", ['ngRoute', 'ezfb', 'ngAnimate']).config(functio
       ezfb.getLoginStatus(function(res) {
         if (res.status === 'connected') {
           $rootScope.auth = true;
-          return deferred.resolve();
         }
+        return deferred.resolve();
       });
     } else {
       if (webstorage.get('auth') === 'connected') {
         $rootScope.auth = true;
-        deferred.resolve();
       }
+      deferred.resolve();
     }
     return deferred.promise;
   };
   return $q.all([is_authentication()]).then(function(resolves) {
-    return $rootScope.run_level = 'ready';
+    return $rootScope.run_level = 'run';
   });
 });

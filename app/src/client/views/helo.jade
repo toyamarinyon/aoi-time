@@ -13,7 +13,7 @@
       .col-sm-6
         a.btn.btn-info(ng-click="run_level='run'") run!
 
-  .container.animate(ng-show="run_level == 'run'")
+  .container.animate(ng-show="run_level == 'run' && auth")
     .row
       .alert.alert-info
         | Registtime test
@@ -33,6 +33,7 @@
         .form-group
           .col-sm-offset-2.col-sm-10
             button.btn.btn-default(type="submit",ng-click="bye()") BYE!!
+  .container.animate(ng-show="run_level == 'run' && !auth")
     .row
       .col-sm-6
         a.btn.btn-primary(ng-click="facebook_login()") facebook login

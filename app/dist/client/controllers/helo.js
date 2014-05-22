@@ -1,5 +1,5 @@
 "use strict";
-app.controller("HeloController", function($scope, $log, ezfb, webstorage, worked, navigator) {
+app.controller("HeloController", function($scope, $rootScope, $log, ezfb, webstorage, worked, navigator) {
   $scope.helohelomessage = 'hellon!';
   $scope.worked = worked;
   $scope.working_history = [];
@@ -24,8 +24,9 @@ app.controller("HeloController", function($scope, $log, ezfb, webstorage, worked
   };
   return $scope.facebook_login = function() {
     return ezfb.login(function(res) {
-      if (res.authResponse != null) {
-        return $log.info(res);
+      if (res.status === 'connected') {
+        $scope.auth = true;
+        return webstorage.set('auth', true);
       }
     }, {
       scope: 'email,public_profile'

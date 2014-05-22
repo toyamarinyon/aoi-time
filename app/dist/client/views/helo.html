@@ -13,7 +13,7 @@
       <div class="col-sm-6"><a ng-click="run_level='run'" class="btn btn-info">run!</a></div>
     </div>
   </div>
-  <div ng-show="run_level == 'run'" class="container animate">
+  <div ng-show="run_level == 'run' &amp;&amp; auth" class="container animate">
     <div class="row">
       <div class="alert alert-info">Registtime test</div>
       <form role="form" class="form-horizontal">
@@ -41,6 +41,8 @@
         </div>
       </form>
     </div>
+  </div>
+  <div ng-show="run_level == 'run' &amp;&amp; !auth" class="container animate">
     <div class="row">
       <div class="col-sm-6"><a ng-click="facebook_login()" class="btn btn-primary">facebook login</a></div>
     </div>

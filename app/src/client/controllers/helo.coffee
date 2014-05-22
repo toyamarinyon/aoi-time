@@ -1,6 +1,6 @@
 "use strict"
 
-app.controller "HeloController", ($scope, $log, ezfb, webstorage, worked, navigator) ->
+app.controller "HeloController", ($scope, $rootScope, $log, ezfb, webstorage, worked, navigator) ->
 
   $scope.helohelomessage = 'hellon!'
 
@@ -26,6 +26,7 @@ app.controller "HeloController", ($scope, $log, ezfb, webstorage, worked, naviga
 
   $scope.facebook_login = ->
     ezfb.login (res) ->
-      if res.authResponse?
-        $log.info res
+      if res.status == 'connected'
+        $scope.auth = true
+        webstorage.set 'auth', true
     , {scope: 'email,public_profile'}
